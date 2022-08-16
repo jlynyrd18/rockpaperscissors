@@ -4,13 +4,13 @@
 function getComputerChoice() {
     var choice = Math.floor(Math.random() * 10);
     if (choice <= 3) {
-        choice = 1;
+        choice = "Rock";
     }
     else if (choice <= 6) {
-        choice = 2;
+        choice = "Paper";
     }
     else {
-        choice = 3;
+        choice = "Scissors";
     }
     return choice;
 }
