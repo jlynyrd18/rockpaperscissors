@@ -1,32 +1,41 @@
-//First a function that will produce a random choice from 3 choices
-//trying to use numbers to tie to choice and assign
-
-function computerChoice() {
-    var choice = Math.floor(Math.random() * 10);
-    if (choice <= 3) {
-        choice = "rock";
+function getComputerChoice () {
+    let ComputerChoice = Math.floor(Math.random() * 3);
+    if (ComputerChoice === 0) {
+        return "rock"
     }
-    else if (choice <= 6) {
-        choice = "paper";
+    else if (ComputerChoice === 1) {
+        return "paper"
     }
-    else {
-        choice = "scissors";
+    else if (ComputerChoice === 2) {
+        return "scissors"
     }
-    return choice;
 }
-console.log(computerChoice());
+//console.log(getComputerChoice());
+let playerSelect = "rock";
+let playerSelection = playerSelect.toLowerCase();
+let computerSelection = getComputerChoice();
 
-//Player selection, needs to be case insensitive so users can input rock, ROCK, RocK
-let playerInput = prompt("Please pick one", "Rock Paper or Scissors");
-let playerChoice = playerInput.toLowerCase();
-console.log(playerChoice);
-
-//function for a single round of rock paper scissors
-//take two parameters playerSelection and computerSelection
-//then return string that declares the winner of the round
-function battle(computerChoice, playerChoice) {
-    if (computerChoice == playerChoice) {
-        return "It's a tie, try again."
+function playRound (playerSelection, computerSelection) {
+    if (playerSelection === computerSelection) {
+        return `You tied you both picked ${playerSelection}`
     }
-    else if ()
+    else if (playerSelection === "rock" && computerSelection === "paper") {
+        return `You lose, ${computerSelection} covers ${playerSelection}`
+    }
+    else if (playerSelection === "rock" && computerSelection === "scissors") {
+        return `You win, ${playerSelection} smashes ${computerSelection}`
+    }
+    else if (playerSelection === "paper" && computerSelection === "rock") {
+        return `You win, ${playerSelection} covers ${computerSelection}`
+    }
+    else if (playerSelection === "paper" && computerSelection === "scissors") {
+        return `You lose, ${computerSelection} cuts ${playerSelection}`
+    }
+    else if (playerSelection === "scissors" && computerSelection === "rock") {
+        return `You lose, ${computerSelection} smashes ${playerSelection}`
+    }
+    else if (playerSelection === "scissors" && computerSelection === "paper") {
+        return `You win, ${playerSelection} cuts ${computerSelection}`
+    }
 }
+console.log(playRound(playerSelection, computerSelection));
