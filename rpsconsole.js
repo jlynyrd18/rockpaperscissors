@@ -10,10 +10,10 @@ function getComputerChoice () {
         return "scissors"
     }
 }
+
 //console.log(getComputerChoice());
-let playerSelect = "rock";
-let playerSelection = playerSelect.toLowerCase();
-let computerSelection = getComputerChoice();
+
+
 let computerScore = 0;
 let playerScore = 0;
 
@@ -52,7 +52,9 @@ function playRound (playerSelection, computerSelection) {
 // best if use a for loop, also tells who's the winner at the end of the five rounds
 function game() {
     for (let score = 0; score < 5; score++) {
-        playRound(playerSelection, computerSelection);
+        let playerSelection = prompt("Pleae enter rock, paper, or scissors.", "rock");
+        let computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection, computerSelection));
     }
     if (playerScore >= 5) {
         return "Congradulations! You win the game!"
