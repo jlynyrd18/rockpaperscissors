@@ -14,6 +14,8 @@ function getComputerChoice () {
 let playerSelect = "rock";
 let playerSelection = playerSelect.toLowerCase();
 let computerSelection = getComputerChoice();
+let computerScore = 0;
+let playerScore = 0;
 
 function playRound (playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
@@ -38,8 +40,13 @@ function playRound (playerSelection, computerSelection) {
         return `You win, ${playerSelection} cuts ${computerSelection}`
     }
 }
-console.log(playRound(playerSelection, computerSelection));
+//console.log(playRound(playerSelection, computerSelection));
 
+// Need a function here called game that has the computer and player play five rounds and keeps score
+// best if use a for loop, also tells who's the winner at the end of the five rounds
 function game() {
-    
+    for (let score = 0; score < 5; score++) {
+        playRound;
+    }
 }
+console.log(game());
