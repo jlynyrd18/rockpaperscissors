@@ -22,21 +22,27 @@ function playRound (playerSelection, computerSelection) {
         return `You tied you both picked ${playerSelection}`
     }
     else if (playerSelection === "rock" && computerSelection === "paper") {
+        computerScore++;
         return `You lose, ${computerSelection} covers ${playerSelection}`
     }
     else if (playerSelection === "rock" && computerSelection === "scissors") {
+        playerScore++;
         return `You win, ${playerSelection} smashes ${computerSelection}`
     }
     else if (playerSelection === "paper" && computerSelection === "rock") {
+        playerScore++;
         return `You win, ${playerSelection} covers ${computerSelection}`
     }
     else if (playerSelection === "paper" && computerSelection === "scissors") {
+        computerScore++;
         return `You lose, ${computerSelection} cuts ${playerSelection}`
     }
     else if (playerSelection === "scissors" && computerSelection === "rock") {
+        computerScore++;
         return `You lose, ${computerSelection} smashes ${playerSelection}`
     }
     else if (playerSelection === "scissors" && computerSelection === "paper") {
+        playerScore++;
         return `You win, ${playerSelection} cuts ${computerSelection}`
     }
 }
@@ -46,7 +52,16 @@ function playRound (playerSelection, computerSelection) {
 // best if use a for loop, also tells who's the winner at the end of the five rounds
 function game() {
     for (let score = 0; score < 5; score++) {
-        playRound;
+        playRound(playerSelection, computerSelection);
+    }
+    if (playerScore >= 5) {
+        return "Congradulations! You win the game!"
+    }
+    else if (computerScore >= 5) {
+        return "You lost, try working on your throws."
+    }
+    else {
+        return "You tied the computer, not too bad."
     }
 }
 console.log(game());
