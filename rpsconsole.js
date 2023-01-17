@@ -11,9 +11,6 @@ function getComputerChoice () {
     }
 }
 
-//console.log(getComputerChoice());
-
-
 let computerScore = 0;
 let playerScore = 0;
 
@@ -46,24 +43,12 @@ function playRound (playerSelection, computerSelection) {
         return `You win, ${playerSelection} cuts ${computerSelection}`
     }
 }
-//console.log(playRound(playerSelection, computerSelection));
 
-// Need a function here called game that has the computer and player play five rounds and keeps score
-// best if use a for loop, also tells who's the winner at the end of the five rounds
-function game() {
-    for (let score = 0; score < 5; score++) {
-        let playerSelection = prompt("Pleae enter rock, paper, or scissors.", "rock");
-        let computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection));
-    }
-    if (playerScore >= 5) {
-        return "Congradulations! You win the game!"
-    }
-    else if (computerScore >= 5) {
-        return "You lost, try working on your throws."
-    }
-    else {
-        return "You tied the computer, not too bad."
-    }
-}
-console.log(game());
+//add event listener to buttons that call playRound function with correct playerSelection when a button is clicked
+//object.addEventListener("click", myscript);
+//element = document.getElementById("myBtn");
+//element.addEventListener("click", myFunction);
+const rock = document.getElementsByClassName("rock");
+rock.addEventListener("click", function(){
+    playRound("rock", getComputerChoice());
+});
