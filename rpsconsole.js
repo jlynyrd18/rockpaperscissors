@@ -44,11 +44,9 @@ function playRound (playerSelection, computerSelection) {
     }
 }
 
-//add event listener to buttons that call playRound function with correct playerSelection when a button is clicked
-//object.addEventListener("click", myscript);
-//element = document.getElementById("myBtn");
-//element.addEventListener("click", myFunction);
-const rock = document.getElementsByClassName("rock");
-rock.addEventListener("click", function(){
-    playRound("rock", getComputerChoice());
-});
+let rock = document.getElementById("rock");
+rock.addEventListener("click", playerChoice);
+function playerRock() {
+    computerSelection = getComputerChoice();
+    playRound("rock", computerSelection);
+}
