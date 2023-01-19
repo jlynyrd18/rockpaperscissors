@@ -11,9 +11,6 @@ function getComputerChoice () {
     }
 }
 
-let computerScore = 0;
-let playerScore = 0;
-
 function playRound (playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         return `You tied you both picked ${playerSelection}`
@@ -43,6 +40,14 @@ function playRound (playerSelection, computerSelection) {
         return `You win, ${playerSelection} cuts ${computerSelection}`
     }
 }
+
+let computerScore = 0;
+let playerScore = 0;
+
+/*document.createElement()
+create scoreboard as whole and number for each side 3 divs
+buttons in box says choices
+*/
 
 document.getElementById("rock").addEventListener("click", function() {
     playRound("rock", getComputerChoice());
