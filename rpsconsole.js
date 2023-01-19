@@ -44,9 +44,14 @@ function playRound (playerSelection, computerSelection) {
     }
 }
 
-let rock = document.getElementById("rock");
-rock.addEventListener("click", playerChoice);
-function playerRock() {
-    computerSelection = getComputerChoice();
-    playRound("rock", computerSelection);
-}
+document.getElementById("rock").addEventListener("click", function() {
+    playRound("rock", getComputerChoice());
+});
+
+document.getElementById("paper").addEventListener("click", function() {
+    playRound("paper", getComputerChoice());
+});
+
+document.getElementById("scissors").addEventListener("click", function() {
+    playRound("scissors", getComputerChoice());
+});
