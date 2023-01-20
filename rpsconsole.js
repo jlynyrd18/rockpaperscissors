@@ -16,7 +16,7 @@ function playRound (playerSelection, computerSelection) {
         alert(`You tied you both picked ${playerSelection}`)
     }
     else if (playerSelection === "rock" && computerSelection === "paper") {
-        compScore++;
+        computerScore++;
         alert(`You lose, ${computerSelection} covers ${playerSelection}`)
     }
     else if (playerSelection === "rock" && computerSelection === "scissors") {
@@ -28,11 +28,11 @@ function playRound (playerSelection, computerSelection) {
         alert(`You win, ${playerSelection} covers ${computerSelection}`)
     }
     else if (playerSelection === "paper" && computerSelection === "scissors") {
-        compScore++;
+        computerScore++;
         alert(`You lose, ${computerSelection} cuts ${playerSelection}`)
     }
     else if (playerSelection === "scissors" && computerSelection === "rock") {
-        compScore++;
+        computgerScore++;
         alert(`You lose, ${computerSelection} smashes ${playerSelection}`)
     }
     else if (playerSelection === "scissors" && computerSelection === "paper") {
@@ -54,8 +54,8 @@ document.getElementById("scissors").addEventListener("click", function() {
 });
 
 
-//let computerScore = 0;
-//let playerScore = 0;
+let computerScore = 0;
+let playerScore = 0;
 
 /*document.createElement()
 create scoreboard as whole and number for each side 3 divs
@@ -77,3 +77,5 @@ compScore.id = "computerScore";
 playScore.id = "playerScore";
 board.appendChild(playScore);
 board.appendChild(compScore);
+document.getElementById("computerScore").innerHTML = computerScore;
+document.getElementById("playerScore").innerHTML = playerScore;
