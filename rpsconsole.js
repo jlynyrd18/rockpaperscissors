@@ -53,29 +53,29 @@ document.getElementById("scissors").addEventListener("click", function() {
     playRound("scissors", getComputerChoice());
 });
 
-
-let computerScore = 0;
-let playerScore = 0;
-
-/*document.createElement()
-create scoreboard as whole and number for each side 3 divs
-buttons in box says choices
-*/
+//scoreboard
 const board = document.createElement("div");
 board.id = "scoreboard";
 board.textContent = "Scoreboard";
 board.style.border = "3px solid black";
-
 document.body.append(board);
+
+//score variables
+let computerScore = 0;
+let playerScore = 0;
 
 //Each players score
 const compScore = document.createElement("div");
 const playScore = document.createElement("div");
-compScore.textContent = 0;
-playScore.textContent = 0;
+compScore.textContent = "Computer";
+playScore.textContent = "Player";
 compScore.id = "computerScore";
 playScore.id = "playerScore";
 board.appendChild(playScore);
 board.appendChild(compScore);
-document.getElementById("computerScore").innerHTML = computerScore;
-document.getElementById("playerScore").innerHTML = playerScore;
+document.getElementById("computerScore").innerHTML = "computerScore " + computerScore;
+document.getElementById("playerScore").innerHTML = "playerScore " + playerScore;
+
+//do I need function that constantly updates to change score?
+//function if either score is 5 alert who wins?
+//
