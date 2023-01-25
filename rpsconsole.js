@@ -43,6 +43,8 @@ function playRound (playerSelection, computerSelection) {
 
 document.getElementById("rock").addEventListener("click", function() {
     playRound("rock", getComputerChoice());
+    pUpscore();
+    cUpScore();
 });
 
 document.getElementById("paper").addEventListener("click", function() {
@@ -65,17 +67,28 @@ let computerScore = 0;
 let playerScore = 0;
 
 //Each players score
+const compName = document.createElement("div");
+const playName = document.createElement("div");
+compName.textContent = "Computer";
+playName.textContent = "Player";
+compName.id = "computer";
+playName.id = "player";
+board.appendChild(playName);
+board.appendChild(compName);
 const compScore = document.createElement("div");
 const playScore = document.createElement("div");
-compScore.textContent = "Computer";
-playScore.textContent = "Player";
-compScore.id = "computerScore";
-playScore.id = "playerScore";
-board.appendChild(playScore);
-board.appendChild(compScore);
-document.getElementById("computerScore").innerHTML = "computerScore " + computerScore;
-document.getElementById("playerScore").innerHTML = "playerScore " + playerScore;
+compScore.id = "compScore";
+playScore.id = "playScore"
+compName.appendChild(compScore);
+playName.appendChild(playScore);
+
 
 //do I need function that constantly updates to change score?
 //function if either score is 5 alert who wins?
-//
+//variable does update in system but need it on screen and to update when value chages
+function pUpscore() {
+    document.getElementById("playerScore").innerHTML = playerScore;
+}
+function cUpScore() {
+    document.getElementById("computerScore").innerHTML = computerScore;
+}
