@@ -32,7 +32,7 @@ function playRound (playerSelection, computerSelection) {
         alert(`You lose, ${computerSelection} cuts ${playerSelection}`)
     }
     else if (playerSelection === "scissors" && computerSelection === "rock") {
-        computgerScore++;
+        computerScore++;
         alert(`You lose, ${computerSelection} smashes ${playerSelection}`)
     }
     else if (playerSelection === "scissors" && computerSelection === "paper") {
@@ -43,16 +43,20 @@ function playRound (playerSelection, computerSelection) {
 
 document.getElementById("rock").addEventListener("click", function() {
     playRound("rock", getComputerChoice());
-    pUpscore();
-    cUpScore();
+    addWin();
+    winner();
 });
 
 document.getElementById("paper").addEventListener("click", function() {
     playRound("paper", getComputerChoice());
+    addWin();
+    winner();
 });
 
 document.getElementById("scissors").addEventListener("click", function() {
     playRound("scissors", getComputerChoice());
+    addWin();
+    winner();
 });
 
 //scoreboard
@@ -66,7 +70,7 @@ document.body.append(board);
 let computerScore = 0;
 let playerScore = 0;
 
-//Each players score
+//Each players general name
 const compName = document.createElement("div");
 const playName = document.createElement("div");
 compName.textContent = "Computer";
@@ -75,20 +79,30 @@ compName.id = "computer";
 playName.id = "player";
 board.appendChild(playName);
 board.appendChild(compName);
+
+//each players score
 const compScore = document.createElement("div");
 const playScore = document.createElement("div");
+compScore.textContent = "Score: 0";
+playScore.textContent = "Score: 0";
 compScore.id = "compScore";
 playScore.id = "playScore"
-compName.appendChild(compScore);
-playName.appendChild(playScore);
+board.appendChild(compScore);
+board.appendChild(playScore);
 
-
-//do I need function that constantly updates to change score?
-//function if either score is 5 alert who wins?
-//variable does update in system but need it on screen and to update when value chages
-function pUpscore() {
-    document.getElementById("playerScore").innerHTML = playerScore;
+//tally win function? query selector with template string literal?
+function addWin() {
+    document.querySelector("#compScore").textContent = `Score: ${computerScore}`;
+    document.querySelector("#playScore").textContent = `Score: ${playerScore}`;
 }
-function cUpScore() {
-    document.getElementById("computerScore").innerHTML = computerScore;
+
+//winner funciton to check if either score is 5, if is return who won the game, if not do nothing until then
+function winner() {
+    if (computerScore == 5) {
+        alert("Dang the coputer won this time.");
+    }else if (playerScore == 5) {
+        alert("Congradulations! You beat the computer.");
+    }else {
+        return;
+    }
 }
