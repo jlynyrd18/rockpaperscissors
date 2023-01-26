@@ -1,0 +1,10 @@
+body {
+    background-color:lightblue;
+}
+#scoreboard {
+    text-align: center;
+}
+.container{
+    display: flex;
+    justify-content: center;
+}
