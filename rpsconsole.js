@@ -70,25 +70,26 @@ document.body.append(board);
 let computerScore = 0;
 let playerScore = 0;
 
-//Each players general name
-const compName = document.createElement("div");
+//Player name and score
+const playScore = document.createElement("div");
 const playName = document.createElement("div");
-compName.textContent = "Computer";
+playScore.textContent = "Score: 0";
 playName.textContent = "Player";
-compName.id = "computer";
+playScore.id = "playScore";
 playName.id = "player";
 board.appendChild(playName);
-board.appendChild(compName);
-
-//each players score
-const compScore = document.createElement("div");
-const playScore = document.createElement("div");
-compScore.textContent = "Score: 0";
-playScore.textContent = "Score: 0";
-compScore.id = "compScore";
-playScore.id = "playScore"
-board.appendChild(compScore);
 board.appendChild(playScore);
+
+//Computer name and score
+const compName = document.createElement("div");
+const compScore = document.createElement("div");
+compName.textContent = "Computer";
+compScore.textContent = "Score: 0";
+compName.id = "computer";
+compScore.id = "compScore";
+board.appendChild(compName);
+board.appendChild(compScore);
+
 
 //tally win function? query selector with template string literal?
 function addWin() {
