@@ -106,3 +106,13 @@ function winner() {
         return;
     }
 }
+//need to add a reset button that will set scores to 0 to allow restarting
+const resetGame = document.createElement("button");
+resetGame.textContent = "Reset";
+resetGame.className = "reset";
+document.body.append(resetGame);
+resetGame.addEventListener("click", function() {
+    computerScore = 0;
+    playerScore = 0;
+    location.reload();
+})
